@@ -8,15 +8,20 @@ app = marimo.App(width="medium")
 def _():
     import marimo as mo
     import pandas as pd
+    import numpy as np
     from basketball_reference_web_scraper import client
 
-    return (client,)
+    return
 
 
 @app.cell
-def _(client):
-    player_adv = client.players_advanced_season_totals(season_end_year=2026)
-    print(player_adv[9])
+def _():
+    return
+
+
+@app.cell
+def _(player_adv):
+    len(player_adv)
     return
 
 

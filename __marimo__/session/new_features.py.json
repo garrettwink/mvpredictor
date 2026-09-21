@@ -7,7 +7,7 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "b0c85fc492e285d4b0a1e8363af7543e",
+      "code_hash": "e909d0b54203b68bad6a7b22bdd9de63",
       "outputs": [
         {
           "type": "data",
@@ -19,24 +19,37 @@
       "console": []
     },
     {
-      "id": "wGST",
-      "code_hash": "56d16a49ebfe54c78034922e927faa86",
+      "id": "MJUe",
+      "code_hash": "c420033063a8c0996827d4bf672f1461",
       "outputs": [
         {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
+          "type": "error",
+          "ename": "interruption",
+          "evalue": "This cell was interrupted and needs to be re-run",
+          "traceback": []
         }
       ],
       "console": [
         {
           "type": "stream",
-          "name": "stdout",
-          "text": "{'slug': 'whitede01', 'name': 'Derrick White', 'positions': [<Position.SHOOTING_GUARD: 'SHOOTING GUARD'>], 'age': 31, 'team': <Team.BOSTON_CELTICS: 'BOSTON CELTICS'>, 'games_played': 77, 'minutes_played': 2625, 'player_efficiency_rating': 16.0, 'true_shooting_percentage': 0.529, 'three_point_attempt_rate': 0.578, 'free_throw_attempt_rate': 0.184, 'offensive_rebound_percentage': 3.7, 'defensive_rebound_percentage': 10.4, 'total_rebound_percentage': 7.1, 'assist_percentage': 22.2, 'steal_percentage': 1.7, 'block_percentage': 3.8, 'turnover_percentage': 10.1, 'usage_percentage': 22.0, 'offensive_win_shares': 3.5, 'defensive_win_shares': 3.5, 'win_shares': 7.0, 'win_shares_per_48_minutes': 0.129, 'offensive_box_plus_minus': 2.2, 'defensive_box_plus_minus': 1.0, 'box_plus_minus': 3.2, 'value_over_replacement_player': 3.5, 'is_combined_totals': False}\n",
-          "mimetype": "text/plain"
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\AppData\\Local\\Temp\\marimo_24772\\__marimo__cell_MJUe_.py\"</span>, line <span class=\"m\">4</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">player_adv</span> <span class=\"o\">=</span> <span class=\"n\">client</span><span class=\"o\">.</span><span class=\"n\">players_advanced_season_totals</span><span class=\"p\">(</span><span class=\"n\">season_end_year</span><span class=\"o\">=</span><span class=\"n\">season</span><span class=\"p\">)</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\basketball_reference_web_scraper\\client.py\"</span>, line <span class=\"m\">198</span>, in <span class=\"n\">players_advanced_season_totals</span>\n<span class=\"w\">    </span><span class=\"n\">values</span> <span class=\"o\">=</span> <span class=\"n\">http_service</span><span class=\"o\">.</span><span class=\"n\">players_advanced_season_totals</span><span class=\"p\">(</span>\n<span class=\"w\">    </span>    <span class=\"n\">season_end_year</span><span class=\"p\">,</span>\n<span class=\"w\">    </span>    <span class=\"n\">include_combined_values</span><span class=\"o\">=</span><span class=\"n\">include_combined_values</span>\n<span class=\"w\">    </span><span class=\"p\">)</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\basketball_reference_web_scraper\\http_service.py\"</span>, line <span class=\"m\">139</span>, in <span class=\"n\">players_advanced_season_totals</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">parser</span><span class=\"o\">.</span><span class=\"n\">parse_player_advanced_season_totals_parser</span><span class=\"p\">(</span><span class=\"n\">totals</span><span class=\"o\">=</span><span class=\"n\">table</span><span class=\"o\">.</span><span class=\"n\">get_rows</span><span class=\"p\">(</span><span class=\"n\">include_combined_values</span><span class=\"p\">))</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\basketball_reference_web_scraper\\parser_service.py\"</span>, line <span class=\"m\">117</span>, in <span class=\"n\">parse_player_advanced_season_totals_parser</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">player_advanced_season_totals_parser</span><span class=\"o\">.</span><span class=\"n\">parse</span><span class=\"p\">(</span><span class=\"n\">totals</span><span class=\"o\">=</span><span class=\"n\">totals</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\basketball_reference_web_scraper\\parsers.py\"</span>, line <span class=\"m\">332</span>, in <span class=\"n\">parse</span>\n<span class=\"w\">    </span><span class=\"s2\">\"is_combined_totals\"</span><span class=\"p\">:</span> <span class=\"n\">total</span><span class=\"o\">.</span><span class=\"n\">is_combined_totals</span><span class=\"p\">,</span>\n<span class=\"w\">                          </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\basketball_reference_web_scraper\\html.py\"</span>, line <span class=\"m\">592</span>, in <span class=\"n\">is_combined_totals</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">team_abbreviation</span><span class=\"o\">.</span><span class=\"n\">endswith</span><span class=\"p\">(</span><span class=\"s2\">\"TM\"</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\basketball_reference_web_scraper\\html.py\"</span>, line <span class=\"m\">385</span>, in <span class=\"n\">team_abbreviation</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">cells</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span><span class=\"o\">.</span><span class=\"n\">text_content</span><span class=\"p\">()</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~~~~~~~^^</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\lxml\\html\\__init__.py\"</span>, line <span class=\"m\">400</span>, in <span class=\"n\">text_content</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">_collect_string_content</span><span class=\"p\">(</span><span class=\"bp\">self</span><span class=\"p\">)</span>\n  File <span class=\"nb\">\"C:\\Users\\gwink\\Documents\\Projects\\mvpredictor\\.venv\\Lib\\site-packages\\marimo\\_runtime\\handlers.py\"</span>, line <span class=\"m\">72</span>, in <span class=\"n\">interrupt_handler</span>\n<span class=\"w\">    </span><span class=\"k\">raise</span> <span class=\"n\">MarimoInterrupt</span>\n<span class=\"gr\">KeyboardInterrupt</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
         }
       ]
+    },
+    {
+      "id": "pKEf",
+      "code_hash": "28cc941985f00856c61ed8991bfd7dc1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>0</pre>"
+          }
+        }
+      ],
+      "console": []
     }
   ]
 }
