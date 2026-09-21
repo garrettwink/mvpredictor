@@ -1,0 +1,42 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.24.2",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "b0c85fc492e285d4b0a1e8363af7543e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wGST",
+      "code_hash": "56d16a49ebfe54c78034922e927faa86",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "{'slug': 'whitede01', 'name': 'Derrick White', 'positions': [<Position.SHOOTING_GUARD: 'SHOOTING GUARD'>], 'age': 31, 'team': <Team.BOSTON_CELTICS: 'BOSTON CELTICS'>, 'games_played': 77, 'minutes_played': 2625, 'player_efficiency_rating': 16.0, 'true_shooting_percentage': 0.529, 'three_point_attempt_rate': 0.578, 'free_throw_attempt_rate': 0.184, 'offensive_rebound_percentage': 3.7, 'defensive_rebound_percentage': 10.4, 'total_rebound_percentage': 7.1, 'assist_percentage': 22.2, 'steal_percentage': 1.7, 'block_percentage': 3.8, 'turnover_percentage': 10.1, 'usage_percentage': 22.0, 'offensive_win_shares': 3.5, 'defensive_win_shares': 3.5, 'win_shares': 7.0, 'win_shares_per_48_minutes': 0.129, 'offensive_box_plus_minus': 2.2, 'defensive_box_plus_minus': 1.0, 'box_plus_minus': 3.2, 'value_over_replacement_player': 3.5, 'is_combined_totals': False}\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    }
+  ]
+}
