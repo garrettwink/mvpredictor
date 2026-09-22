@@ -5,7 +5,7 @@ library(RSQLite)
 library(stringr)
 
 # Seasons to collect
-seasons <- c(seq(2010, 2025, by=1))
+seasons <- c(seq(2010, 2026, by=1))
 
 # Fetch all award rows for each season and attach the season column
 all_awards <- list()

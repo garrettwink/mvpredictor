@@ -47,11 +47,10 @@ def clean_player_stats(
 	stats = base.merge(advanced, on="PLAYER_ID", how="inner")
 	stats = stats.rename(columns=PLAYER_STATS_RENAME)
 	stats["season"] = int(season.split("-")[0])
-	stats["mpg"] = stats["min"] / stats["gp"]
+	stats["mpg"] = stats["min"]
 	stats["team_id"] = stats["team_id"].astype(int)
 	stats["player_id"] = stats["player_id"].astype(int)
 	stats["age"] = stats["age"].astype(int)
-
 	return stats.drop(columns=["min"])
 
 
