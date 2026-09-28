@@ -5,14 +5,11 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import GridSearchCV
 import pandas as pd
 
-from dataset import X_train, X_test, y_train, y_test, id_train, id_test
+from dataset import X_train, X_test, y_train, y_test, id_train, id_test, group_sizes
 
-model = xgb.XGBRegressor(
-    colsample_bytree = 0.8,
-    learning_rate = 0.1,
-    max_depth = 9,
-    n_estimators = 50,
-    subsample = 0.8
+model = xgb.XGBRanker(
+    objective='rank:ndcg',
+    tree_method='hist'
 )
 
-model.fit(X_train, y_train)
+model.fit(X_train, y_train, group=group_sizes)
