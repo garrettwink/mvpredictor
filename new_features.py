@@ -10,6 +10,7 @@ def _():
     import pandas as pd
     import numpy as np
     from basketball_reference_web_scraper import client
+    from models.train import model
 
     return
 
@@ -20,8 +21,7 @@ def _():
 
 
 @app.cell
-def _(player_adv):
-    len(player_adv)
+def _():
     return
 
 
