@@ -20,13 +20,13 @@ df.loc[df['mvp_rank'] == 1, 'mvp'] = 1
 df.fillna(0, inplace=True)
 
 train_seasons = np.arange(2010, 2022, 1)   # 2010–2021
-test_seasons = np.arange(2023, 2026, 1)    # 2022–2025
+test_seasons = np.arange(2022, 2026, 1)    # 2022–2025
 
-train = df[df['season'].isin(train_seasons)]
-test = df[df['season'].isin(test_seasons)]
+train = df[df['season'].isin(train_seasons)].sort_values('season', kind='stable').reset_index(drop=True)
+test = df[df['season'].isin(test_seasons)].sort_values('season', kind='stable').reset_index(drop=True)
 
 feature_cols = [
-    'pts', 'ast', 'off_reb', 'def_reb', 'stl', 'blk', 'tov',
+    'pts', 'ast', 'reb', 'stl', 'blk', 'tov',
     'fg_pct', 'fg3_pct', 'ft_pct', 'gp', 'mpg', 'usg_pct',
     'net_rating', 'pie', 'ts_pct', 'age',
     'team_win_pct', 'playoff_clinch'
@@ -34,7 +34,7 @@ feature_cols = [
 
 id_cols = ['player_id', 'player_name', 'season']
 
-group_sizes = train.groupby("season", sort=False).size().to_numpy()
+group_sizes = train.groupby("season", sort=True).size().to_numpy()
 
 X_train = train[feature_cols]
 X_test = test[feature_cols]

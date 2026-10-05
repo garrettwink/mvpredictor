@@ -1,18 +1,20 @@
 from dataset import X_test, y_test, id_test
 from train import model
-from sklearn.metrics import mean_absolute_error, mean_squared_error
-import pandas as pd
-import matplotlib.pyplot as plt
 
-predicted_vote_share = model.predict(X_test)
+ranking_score = model.predict(X_test)
 
 results = id_test.copy()
 results["actual_vote_share"] = y_test.to_numpy()
-results["predicted_vote_share"] = predicted_vote_share
+results["ranking_score"] = ranking_score
 
 results["prediction_rank"] = (
-    results.groupby("season")["predicted_vote_share"]
+    results.groupby("season")["ranking_score"]
     .rank(method="first", ascending=False)
+    .astype(int)
+)
+results["actual_rank"] = (
+    results.groupby("season")["actual_vote_share"]
+    .rank(method="min", ascending=False)
     .astype(int)
 )
 
@@ -22,9 +24,13 @@ for season, season_results in results.groupby("season"):
         season_results
         .sort_values("prediction_rank")
         .head(10)
-        [["prediction_rank", "player_name", "predicted_vote_share", "actual_vote_share"]]
+        [["prediction_rank", "player_name", "ranking_score", "actual_vote_share", "actual_rank"]]
         .to_string(index=False)
     )
 
-print("\nMAE:", mean_absolute_error(y_test, predicted_vote_share))
-print("RMSE:", mean_squared_error(y_test, predicted_vote_share) ** 0.5)
+    winner_hits = (results.loc[results["prediction_rank"] == 1, "actual_rank"] == 1).sum()
+    top_three_hits = (results.loc[results["prediction_rank"] <= 3, "actual_rank"] == 1).sum()
+    season_count = results["season"].nunique()
+
+print(f"\nWinner hit rate: {winner_hits}/{season_count} seasons")
+print(f"Top-3 winner coverage: {top_three_hits}/{season_count} seasons")

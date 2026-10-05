@@ -1,13 +1,9 @@
 import xgboost as xgb
-from sklearn.metrics import mean_squared_error, r2_score
-import numpy as np
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import GridSearchCV
-import pandas as pd
 
-from dataset import X_train, X_test, y_train, y_test, id_train, id_test
+from dataset import X_train, y_train, group_sizes
 
-model = xgb.XGBRegressor(
+model = xgb.XGBRanker(
+    objective="rank:pairwise",
     colsample_bytree = 0.8,
     learning_rate = 0.1,
     max_depth = 9,
@@ -15,4 +11,4 @@ model = xgb.XGBRegressor(
     subsample = 0.8
 )
 
-model.fit(X_train, y_train)
+model.fit(X_train, y_train, group=group_sizes)
